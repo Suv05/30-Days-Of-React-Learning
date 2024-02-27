@@ -1,0 +1,23 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+}
+h2{
+   margin: 10px 0px; 
+   font-weight:700 ;
+}
+
+input{
+    width: 100%;
+}
+.item-container{
+    text-align: left;
+}
+button{
+    width: 100%;
+}
+
+.kg-row{
+    margin: 10px auto;
+}
