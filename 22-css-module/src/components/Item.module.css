@@ -1,0 +1,17 @@
+/* styles.module.css */
+.container {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.text {
+  color: #333;
+  font-size: 18px;
+}
+
+.my-class{
+    color: #ea2020;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-stretch: semi-condensed;
+    font-style: italic;
+}
