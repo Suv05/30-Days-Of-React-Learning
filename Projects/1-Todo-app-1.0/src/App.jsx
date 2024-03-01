@@ -1,20 +1,30 @@
 import AppName from "./components/AppName";
 import Todo from "./components/Todo";
-import TodoItem1 from "./components/TodoItem-1";
-import TodoItem2 from "./components/TodoItem-2";
+//import TaskRender from "./components/TaskRender";
+import TaskAssign from "./components/TaskAssign";
 import "./App.css";
+
 function App() {
+  const TodoItems = [
+    {
+      task: "cricket",
+      dueDate: "04/12/2023",
+    },
+    {
+      task: "school",
+      dueDate: "07/08/2006",
+    },
+    {
+      task: "love",
+      dueDate: "never",
+    },
+  ];
   return (
     <center className="todo-container">
       <AppName></AppName>
-      {/* starting of first line */}
+      {/* TOdo input task bar */}
       <Todo />
-      <div className="item-container">
-        {/* second line of code */}
-        <TodoItem1></TodoItem1>
-        {/* third line of code */}
-        <TodoItem2></TodoItem2>
-      </div>
+      <TaskAssign arr={TodoItems}></TaskAssign>
     </center>
   );
 }

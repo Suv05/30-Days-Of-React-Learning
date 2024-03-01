@@ -1,8 +1,8 @@
-function TodoItem1() {
+function TaskRender(props) {
   return (
     <div className="row kg-row">
-      <div className="col col-6">sleep</div>
-      <div className="col col-4">4/10/2023</div>
+      <div className="col col-6">{props.task}</div>
+      <div className="col col-4">{props.dueDate}</div>
       <div className="col col-2">
         <button type="button" className="btn-danger btn">
           Delete
@@ -11,4 +11,5 @@ function TodoItem1() {
     </div>
   );
 }
-export default TodoItem1;
+
+export default TaskRender;
