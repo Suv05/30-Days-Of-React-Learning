@@ -1,0 +1,29 @@
+.container {
+  box-sizing: content-box;
+  border: 2px double rebeccapurple;
+  text-align: center;
+  margin: 10px 5px;
+  background-color: aqua;
+  color: crimson;
+}
+
+.kgbtn {
+  margin-bottom: 10px;
+}
+@keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate__fadeInLeft {
+    animation-name: fadeInLeft;
+    animation-duration: 1s; /* Adjust the duration as needed */
+    animation-fill-mode: both;
+  }
+  
