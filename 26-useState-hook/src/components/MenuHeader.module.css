@@ -1,0 +1,30 @@
+h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: burlywood !important;
+}
+
+p {
+  color: burlywood;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+hr {
+  border-style: dotted !important;
+  width: 50%;
+  margin: 0 auto !important;
+}
+
+input[type="text"]:focus {
+  outline: 2px solid burlywood;
+  border: none;
+  border-radius: 5px;
+}
+
+.kgInput {
+  margin: 10px auto;
+  text-transform: capitalize;
+  outline: burlywood;
+  width: 15rem;
+  border-radius: 3px;
+}
