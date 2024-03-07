@@ -7,8 +7,8 @@ function App() {
     "Cheeseburger🍔",
     "Cheese sandwich🥪",
     "Chicken burgers🍗",
-    // "Spicy chicken🍟",
-    // "Hot dog🌭",
+    "Spicy chicken🍟",
+    "Hot dog🌭",
   ]);
 
   //for adding items to the menu......
