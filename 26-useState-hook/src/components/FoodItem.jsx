@@ -1,6 +1,12 @@
+import { useState } from "react";
 import styles from "./FoodItem.module.css";
 
 function FoodItem({ arr }) {
+  const [clicked, setClicked] = useState(false);
+
+  let handelOnClick = () => {
+    setClicked(true);
+  };
   return (
     <>
       <ul className={"list-group " + styles.ulItems}>
@@ -8,7 +14,12 @@ function FoodItem({ arr }) {
           <li className={"list-group-item " + styles.myItems} key={x}>
             {x}
             <button
-              className={"btn btn-outline-warning " + styles.kgbtn}
+              className={
+                "btn btn-outline-warning " +
+                styles.kgbtn +
+                (clicked ? "  btn-success" : "")
+              }
+              onClick={handelOnClick}
             >
               BUY
             </button>

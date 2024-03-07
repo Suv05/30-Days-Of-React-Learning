@@ -1,33 +1,30 @@
+import { useState } from "react";
 import MenuHeader from "./components/MenuHeader";
-import FoodItem from "./components/FoodItem";
-import ErrorMessage from "./components/ErrorMessage";
 import Render from "./components/Render";
 
 function App() {
- // let Fooditems = [];
-  let Fooditems = [
+  const [FoodItems, setFoodItems] = useState([
     "Cheeseburger🍔",
     "Cheese sandwich🥪",
     "Chicken burgers🍗",
-   // "Spicy chicken🍟",
-   // "Hot dog🌭",
-  ];
+    // "Spicy chicken🍟",
+    // "Hot dog🌭",
+  ]);
 
-  let hadelKeyDown=(event)=>{
-    if(event.key==="Enter"){
+  //for adding items to the menu......
+  let hadelKeyDown = (event) => {
+    if (event.key === "Enter") {
       event.preventDefault(); // Prevent default behavior of Enter key
-      console.log(event);
-      console.log(event.target.value);
-      Fooditems.push(event.target.value);
+      const newItem = event.target.value;
+      setFoodItems((prevItem) => [...prevItem, newItem]);
       event.target.value = ""; // Clear the input field
-      console.log(Fooditems); // Logging the updated Fooditems array
     }
-  }
+  };
   return (
     <>
       <div className="menuContainer">
         <MenuHeader onKeyDown={hadelKeyDown}></MenuHeader>
-        <Render arr={Fooditems}></Render>
+        <Render arr={FoodItems}></Render>
       </div>
     </>
   );
