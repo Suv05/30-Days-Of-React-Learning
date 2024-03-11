@@ -11,13 +11,18 @@ h2{
 input{
     width: 100%;
 }
-.item-container{
+.itemContainer{
     text-align: left;
 }
 button{
     width: 100%;
+    margin-bottom: 10px !important;
 }
 
-.kg-row{
-    margin: 10px auto;
+.kgRow{
+    margin: 10px  auto;
+}
+
+.todoContainer{
+margin: auto 1rem !important;
 }
