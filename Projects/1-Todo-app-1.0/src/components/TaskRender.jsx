@@ -1,8 +1,8 @@
-import styles from "../App.module.css"
+import styles from "../App.module.css";
 
-function TaskRender({task,dueDate}) {
+function TaskRender({ task, dueDate }) {
   return (
-    <div className={"row"}>
+    <div className="row">
       <div className="col col-6">{task}</div>
       <div className="col col-4">{dueDate}</div>
       <div className="col col-2">

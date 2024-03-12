@@ -1,32 +1,28 @@
 import Todo from "./components/Todo";
-//import TaskRender from "./components/TaskRender";
 import TaskAssign from "./components/TaskAssign";
+import ErrorMessage from "./components/ErrorMessage";
 import styles from "./App.module.css";
 import { useState } from "react";
 
 function App() {
-  // const TodoItems = [
-  //   {
-  //     task: "cricket",
-  //     dueDate: "04/12/2023",
-  //   },
-  //   {
-  //     task: "school",
-  //     dueDate: "07/08/2006",
-  //   },
-  //   {
-  //     task: "love",
-  //     dueDate: "never",
-  //   },
-  // ];
+  const [TodoItems, setTodoItems] = useState([]);
 
-  const [addTask,setAddTask]=useState();
+  let handelNewTodoItems = (itemName, itemDueDate) => {
+    console.log(`new TodoItems are ${itemName} and ${itemDueDate}`);
+    const newTodoItems = [
+      ...TodoItems,
+      { task: itemName, dueDate: itemDueDate },
+    ];
+    setTodoItems(newTodoItems);
+  };
+
   return (
     <center className={styles.todoContainer}>
       <h2 className={styles.kgRow}>To-Do</h2>
       {/* TOdo input task bar */}
-      <Todo />
+      <Todo onAddClick={handelNewTodoItems} />
       <TaskAssign arr={TodoItems}></TaskAssign>
+      <ErrorMessage arr={TodoItems} />
     </center>
   );
 }
