@@ -2,11 +2,16 @@
 import TaskRender from "./TaskRender";
 import styles from "../App.module.css";
 
-function TaskAssign({ arr }) {
+function TaskAssign({ arr, onDeleteClick }) {
   return (
     <div className={styles.itemContainer}>
       {arr.map((x) => (
-        <TaskRender task={x.task} dueDate={x.dueDate}></TaskRender>
+        <TaskRender
+          key={x.task}
+          task={x.task}
+          dueDate={x.dueDate}
+          onDeleteClick={onDeleteClick}
+        ></TaskRender>
       ))}
     </div>
   );

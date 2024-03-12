@@ -7,12 +7,17 @@ import { useState } from "react";
 function App() {
   const [TodoItems, setTodoItems] = useState([]);
 
-  let handelNewTodoItems = (itemName, itemDueDate) => {
-    console.log(`new TodoItems are ${itemName} and ${itemDueDate}`);
-    const newTodoItems = [
-      ...TodoItems,
-      { task: itemName, dueDate: itemDueDate },
-    ];
+  const handelNewTodoItems = (itemName, itemDueDate) => {
+    // console.log(`new TodoItems are ${itemName} and ${itemDueDate}`);
+    let newTodoItems = [...TodoItems, { task: itemName, dueDate: itemDueDate }];
+    setTodoItems(newTodoItems);
+  };
+
+  const handelDeleteBtn = (todoItemName) => {
+    let newTodoItems = TodoItems.filter((x) => {
+      x.task !== todoItemName;
+    });
+
     setTodoItems(newTodoItems);
   };
 
@@ -21,7 +26,7 @@ function App() {
       <h2 className={styles.kgRow}>To-Do</h2>
       {/* TOdo input task bar */}
       <Todo onAddClick={handelNewTodoItems} />
-      <TaskAssign arr={TodoItems}></TaskAssign>
+      <TaskAssign arr={TodoItems} onDeleteClick={handelDeleteBtn}></TaskAssign>
       <ErrorMessage arr={TodoItems} />
     </center>
   );
