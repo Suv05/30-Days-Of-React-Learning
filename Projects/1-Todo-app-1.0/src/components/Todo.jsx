@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { FaBeer } from "react-icons/fa";
 
 //Todo header component
 function Todo({ onAddClick }) {
-  const [todoName, setTodoName] = useState();
-  const [dueDate, setDueDate] = useState();
+  const [todoName, setTodoName] = useState("");
+  const [dueDate, setDueDate] = useState("");
 
   const handelNameChange = (event) => {
     setTodoName(event.target.value);
@@ -37,7 +38,7 @@ function Todo({ onAddClick }) {
             className="btn-primary btn"
             onClick={handelOnClicked}
           >
-            Add
+           <FaBeer />
           </button>
         </div>
       </div>

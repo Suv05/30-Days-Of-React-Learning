@@ -1,4 +1,5 @@
 import styles from "../App.module.css";
+import { GrAddCircle } from "react-icons/gr";
 
 function TaskRender({ task, dueDate, onDeleteClick }) {
   return (
@@ -11,7 +12,7 @@ function TaskRender({ task, dueDate, onDeleteClick }) {
           className="btn-danger btn"
           onClick={() => onDeleteClick(task)}
         >
-          Delete
+          <GrAddCircle />
         </button>
       </div>
     </div>
