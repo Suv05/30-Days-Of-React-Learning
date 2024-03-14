@@ -1,22 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaBeer } from "react-icons/fa";
 
 //Todo header component
 function Todo({ onAddClick }) {
-  const [todoName, setTodoName] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  const todoNameElement = useRef();
+  const dueDateElement = useRef();
 
-  const handelNameChange = (event) => {
-    setTodoName(event.target.value);
-  };
-  const handelDateChange = (event) => {
-    setDueDate(event.target.value);
-  };
-
-  const handelOnClicked = () => {
+  const handelOnClicked = (event) => {
+    event.preventDefault();
+    const todoName = todoNameElement.current.value;
+    const dueDate = dueDateElement.current.value;
+    todoNameElement.current.value = "";
+    dueDateElement.current.value = "";
     onAddClick(todoName, dueDate);
-    setTodoName("");
-    setDueDate("");
   };
   return (
     <>
@@ -24,13 +20,12 @@ function Todo({ onAddClick }) {
         <div className="col col-6">
           <input
             type="text"
-            value={todoName}
+            ref={todoNameElement}
             placeholder="Enter your task"
-            onChange={handelNameChange}
           />
         </div>
         <div className="col col-4">
-          <input type="date" value={dueDate} onChange={handelDateChange} />
+          <input type="date" ref={dueDateElement} />
         </div>
         <div className="col col-2">
           <button
@@ -38,7 +33,7 @@ function Todo({ onAddClick }) {
             className="btn-primary btn"
             onClick={handelOnClicked}
           >
-           <FaBeer />
+            <FaBeer />
           </button>
         </div>
       </div>

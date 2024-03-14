@@ -9,8 +9,10 @@ function App() {
 
   const handelNewTodoItems = (itemName, itemDueDate) => {
     // console.log(`new TodoItems are ${itemName} and ${itemDueDate}`);
-    let newTodoItems = [...TodoItems, { task: itemName, dueDate: itemDueDate }];
-    setTodoItems(newTodoItems);
+    setTodoItems((currValue) => [
+      ...currValue,
+      { task: itemName, dueDate: itemDueDate },
+    ]);
   };
 
   const handelDeleteBtn = (todoItemName) => {
