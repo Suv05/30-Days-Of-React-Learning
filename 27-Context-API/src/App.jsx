@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import userContextProvider from './context/userContextProvider'
+import UserContextProvider from './context/userContextProvider'
 
 function App() {
  
 
   return (
-   <userContextProvider>
+   <UserContextProvider>
 
     
-   </userContextProvider>
+   </UserContextProvider>
   )
 }
 
