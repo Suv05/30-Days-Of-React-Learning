@@ -15,7 +15,7 @@ function CreatePost({}) {
         />
       </div>
       <div className="mb-3">
-        <label for="exampleFormControlTextarea1" className="form-label">
+        <label htmlFor="exampleFormControlTextarea1" className="form-label">
           Example textarea
         </label>
         <textarea
