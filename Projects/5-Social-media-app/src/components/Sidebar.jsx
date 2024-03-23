@@ -1,9 +1,9 @@
-function Sidebar() {
+function Sidebar({ selectTab, setSelectTab }) {
   return (
     <div>
       <div
         className="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary"
-        style={{ width: '280px' }}
+        style={{ width: "280px" }}
       >
         <a
           href="/"
@@ -16,44 +16,40 @@ function Sidebar() {
         </a>
         <hr />
         <ul className="nav nav-pills flex-column mb-auto">
-          <li className="nav-item">
-            <a href="#" className="nav-link active" aria-current="page">
+          <li
+            className="nav-item"
+            onClick={() => {
+              setSelectTab("Home");
+            }}
+          >
+            <a
+              href="#"
+              className={`nav-link link-body-emphasis ${
+                selectTab === "Home" && "active"
+              }`}
+              aria-current="page"
+            >
               <svg className="bi pe-none me-2" width="16" height="16">
                 <use xlinkHref="#home"></use>
               </svg>
               Home
             </a>
           </li>
-          <li>
-            <a href="#" className="nav-link link-body-emphasis">
+          <li
+            onClick={() => {
+              setSelectTab("Create Post");
+            }}
+          >
+            <a
+              href="#"
+              className={`nav-link link-body-emphasis ${
+                selectTab === "Create Post" && "active"
+              }`}
+            >
               <svg className="bi pe-none me-2" width="16" height="16">
                 <use xlinkHref="#speedometer2"></use>
               </svg>
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link link-body-emphasis">
-              <svg className="bi pe-none me-2" width="16" height="16">
-                <use xlinkHref="#table"></use>
-              </svg>
-              Orders
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link link-body-emphasis">
-              <svg className="bi pe-none me-2" width="16" height="16">
-                <use xlinkHref="#grid"></use>
-              </svg>
-              Products
-            </a>
-          </li>
-          <li>
-            <a href="#" className="nav-link link-body-emphasis">
-              <svg className="bi pe-none me-2" width="16" height="16">
-                <use xlinkHref="#people-circle"></use>
-              </svg>
-              Customers
+              Create Post
             </a>
           </li>
         </ul>
@@ -72,14 +68,9 @@ function Sidebar() {
               height="32"
               className="rounded-circle me-2"
             />
-            <strong>mdo</strong>
+            <strong>Amsuv</strong>
           </a>
           <ul className="dropdown-menu text-small shadow">
-            <li>
-              <a className="dropdown-item" href="#">
-                New project...
-              </a>
-            </li>
             <li>
               <a className="dropdown-item" href="#">
                 Settings
