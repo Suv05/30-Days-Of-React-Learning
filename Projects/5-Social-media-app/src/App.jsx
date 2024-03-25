@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import { useState } from "react";
-import PostlistProvider from "./contexts/post-lists";
+import PostlistProvider from "./contexts/PostlistsProvide";
 
 function App() {
   const [selectTab, setSelectTab] = useState("Create Post");
