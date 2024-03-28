@@ -1,0 +1,13 @@
+.cardContent{
+    display: flex;
+}
+
+.cardPose{
+    margin: 10px auto;
+}
+
+.delete{
+    position: absolute;
+    top: 3%;
+    left: 85%;
+}
