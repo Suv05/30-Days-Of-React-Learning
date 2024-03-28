@@ -14,8 +14,10 @@ function App() {
     <PostlistProvider>
       <div className="appContainer">
         <Header></Header>
-        <Sidebar selectTab={selectTab} setSelectTab={setSelectTab}></Sidebar>
-        {selectTab === "Home" ? <Postlist /> : <CreatePost />}
+        <div className="cardContent">
+          <Sidebar selectTab={selectTab} setSelectTab={setSelectTab}></Sidebar>
+          {selectTab === "Home" ? <Postlist /> : <CreatePost />}
+        </div>
         <Footer />
       </div>
     </PostlistProvider>
