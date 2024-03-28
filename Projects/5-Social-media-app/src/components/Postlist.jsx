@@ -7,10 +7,11 @@ function Postlist() {
   const { posts } = useContext(PostListData);
   return (
     <>
-      {posts.map((post) => (
-        <Post key={post.id} {...post}/> // assuming you pass all props to Post component
-        
-      ))}
+      <div className="row">
+        {posts.map((post) => (
+          <Post key={post.id} {...post} /> // assuming you pass all props to Post component
+        ))}
+      </div>
     </>
   );
 }
