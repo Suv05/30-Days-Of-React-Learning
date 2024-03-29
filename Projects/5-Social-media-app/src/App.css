@@ -1,13 +1,17 @@
-.cardContent{
-    display: flex;
+.cardContent {
+  display: flex;
 }
 
-.cardPose{
-    margin: 10px auto;
+.cardPose {
+  margin: 10px auto;
 }
 
-.delete{
-    position: absolute;
-    top: 3%;
-    left: 85%;
+.delete {
+  position: absolute;
+  top: 3%;
+  left: 85%;
+}
+.createPost {
+  width: 70%;
+  margin: 35px auto;
 }
