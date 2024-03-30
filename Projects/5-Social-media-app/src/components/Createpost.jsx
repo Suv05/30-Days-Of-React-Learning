@@ -16,8 +16,9 @@ function CreatePost({}) {
     const title = titleElement.current.value;
     const body = bodyElement.current.value;
     const reaction = reactionElement.current.value;
-    const tags = tagsElement.current.value.split(/(\s+)/);
+    const tags = tagsElement.current.value.split("");
     const userid = useridElement.current.value;
+    addPost(title, body, reaction, tags, userid);
   };
 
   return (
@@ -91,7 +92,7 @@ function CreatePost({}) {
 
       {/* submit button */}
       <button type="submit" className="btn btn-outline-warning mt-3">
-        <i>submit</i>
+        <i>Submit</i>
       </button>
     </form>
   );
