@@ -1,14 +1,27 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
+import { PostContext } from "../contexts/PostlistsProvide";
 
 function CreatePost({}) {
-  useRef()
-  useRef()
-  useRef()
-  useRef()
-  useRef()
-  useRef()
+  //consume addpost context
+  const { addPost } = useContext(PostContext);
+  /////////////////====================////////////////
+  const titleElement = useRef();
+  const bodyElement = useRef();
+  const reactionElement = useRef();
+  const tagsElement = useRef();
+  const useridElement = useRef();
+
+  const handelSubmit = (event) => {
+    event.preventDefault();
+    const title = titleElement.current.value;
+    const body = bodyElement.current.value;
+    const reaction = reactionElement.current.value;
+    const tags = tagsElement.current.value.split(/(\s+)/);
+    const userid = useridElement.current.value;
+  };
+
   return (
-    <div className="createPost">
+    <form className="createPost" onSubmit={handelSubmit}>
       {/* Title */}
       <div className="mb-3">
         <label htmlFor="title" className="form-label">
@@ -17,6 +30,7 @@ function CreatePost({}) {
         <input
           type="text"
           className="form-control"
+          ref={titleElement}
           id="title"
           placeholder="Give a crunchy title to ur post 😘"
         />
@@ -29,6 +43,7 @@ function CreatePost({}) {
         <textarea
           className="form-control"
           placeholder="Post your secreate 🤫"
+          ref={bodyElement}
           id="body"
           rows="5"
         ></textarea>
@@ -42,6 +57,7 @@ function CreatePost({}) {
         <input
           type="text"
           className="form-control"
+          ref={reactionElement}
           id="reaction"
           placeholder="Give others react to ur post 🤓"
         />
@@ -54,6 +70,7 @@ function CreatePost({}) {
         <input
           type="text"
           className="form-control"
+          ref={useridElement}
           id="userid"
           placeholder="Give a sexy User-Id 🫦"
         />
@@ -66,11 +83,17 @@ function CreatePost({}) {
         <input
           type="text"
           className="form-control"
+          ref={tagsElement}
           id="tag"
           placeholder="Give a asethetic tag in ur post 😶‍🌫️"
         />
       </div>
-    </div>
+
+      {/* submit button */}
+      <button type="submit" className="btn btn-outline-warning mt-3">
+        <i>submit</i>
+      </button>
+    </form>
   );
 }
 

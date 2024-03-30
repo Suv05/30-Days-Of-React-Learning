@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import Post from "./Post";
-import { Postlist as PostListData } from "../contexts/PostlistsProvide";
+import { PostContext } from "../contexts/PostlistsProvide";
 
 function Postlist() {
   // using context to fetch posts from Postlist
-  const { posts } = useContext(PostListData);
+  const { posts } = useContext(PostContext);
   return (
     <>
       <div className="row">
