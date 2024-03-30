@@ -15,6 +15,8 @@ const reducer = (currState, action) => {
   //newstate will keep that post which id will not match with action.payload.id
   if (action.type === "DELETE_POST") {
     newState = currState.filter((item) => item.id !== action.payload.id);
+  } else if (action.type === "ADD_Post") {
+    newState = [action.payload, ...currState];
   }
 
   return newState;
@@ -38,36 +40,26 @@ const DEFAULT_POST_LIST = [
     userId: "user-10",
     tags: ["relationship", "marriage", "love"],
   },
-  {
-    id: 3,
-    title: "graduating from college",
-    body: "After 4 years of relationship i am finally marrying to Ananya",
-    reaction: 15,
-    userId: "user-10",
-    tags: ["relationship", "marriage", "sex"],
-  },
-  {
-    id: 4,
-    title: "graduating from college",
-    body: "After 4 years of relationship i am finally marrying to Ananya",
-    reaction: 15,
-    userId: "user-10",
-    tags: ["relationship", "marriage"],
-  },
-  {
-    id: 5,
-    title: "graduating from college",
-    body: "After 4 years of relationship i am finally marrying to Ananya",
-    reaction: 15,
-    userId: "user-10",
-    tags: ["relationship", "marriage"],
-  },
 ];
 
 // function within which we declared provider and useReducer
 const PostlistProvider = ({ children }) => {
   const [postListState, dispatch] = useReducer(reducer, DEFAULT_POST_LIST);
-  const addPost = () => {};
+
+  //implimenting addPost
+  const addPost = (title, body, reaction, tags, userid) => {
+    dispatch({
+      type: "ADD_Post",
+      payload: {
+        id: Date.now(),
+        title: title,
+        body: body,
+        reaction: reaction,
+        userId: userid,
+        tags: tags,
+      },
+    });
+  };
 
   //implementing deletepost using useReducer
   const deletePost = (id) => {
