@@ -16,8 +16,17 @@ function CreatePost({}) {
     const title = titleElement.current.value;
     const body = bodyElement.current.value;
     const reaction = reactionElement.current.value;
-    const tags = tagsElement.current.value.split("");
+    const tags = tagsElement.current.value.split(" ");
     const userid = useridElement.current.value;
+
+    //clear the value afetr the submit is clicked
+    titleElement.current.value = " ";
+    bodyElement.current.value = " ";
+    reactionElement.current.value = " ";
+    tagsElement.current.value = " ";
+    useridElement.current.value = " ";
+
+    //Call addPost method
     addPost(title, body, reaction, tags, userid);
   };
 
