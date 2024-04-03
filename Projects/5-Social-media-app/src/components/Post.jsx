@@ -14,7 +14,7 @@ function Post({ id, title, body, tags }) {
   return (
     <div
       className="card cardPose col-lg-6 mx-3 my-3 ml"
-      style={{ width: "23rem", height: "300px" }}
+      style={{ width: "23rem", maxHeight: "800px" }}
     >
       {/* You can use the post data to fill in the card */}
       <div className="card-body">
