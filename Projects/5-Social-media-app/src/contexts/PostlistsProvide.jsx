@@ -6,6 +6,7 @@ export const PostContext = createContext({
   posts: [],
   addPost: () => {},
   deletePost: () => {},
+  showDefaultPost: () => {},
 });
 
 // reducer function
@@ -17,34 +18,16 @@ const reducer = (currState, action) => {
     newState = currState.filter((item) => item.id !== action.payload.id);
   } else if (action.type === "ADD_Post") {
     newState = [action.payload, ...currState];
+  } else if (action.type === "SHOW_DEFAULT_POST") {
+    newState = action.payload.allPost;
   }
 
   return newState;
 };
 
-// Dummy Data
-const DEFAULT_POST_LIST = [
-  {
-    id: 1,
-    title: "going to mumbai",
-    body: "Hi friends i am ankita going to mumbai for my study",
-    reaction: 9,
-    userId: "user-9",
-    tags: ["mumbai", "study"],
-  },
-  {
-    id: 2,
-    title: "graduating from college",
-    body: "After 4 years of relationship i am finally marrying to Ananya",
-    reaction: 15,
-    userId: "user-10",
-    tags: ["relationship", "marriage", "love"],
-  },
-];
-
 // function within which we declared provider and useReducer
 const PostlistProvider = ({ children }) => {
-  const [postListState, dispatch] = useReducer(reducer, DEFAULT_POST_LIST);
+  const [postListState, dispatch] = useReducer(reducer, []);
 
   //implimenting addPost
   const addPost = (title, body, reaction, tags, userid) => {
@@ -57,6 +40,16 @@ const PostlistProvider = ({ children }) => {
         reaction: reaction,
         userId: userid,
         tags: tags,
+      },
+    });
+  };
+
+  //implementing show default post
+  const showDefaultPost = (item) => {
+    dispatch({
+      type: "SHOW_DEFAULT_POST",
+      payload: {
+        allPost: item,
       },
     });
   };
@@ -77,6 +70,7 @@ const PostlistProvider = ({ children }) => {
         posts: postListState, // Fix: Change to postListState
         addPost: addPost,
         removePost: deletePost,
+        showPost: showDefaultPost,
       }}
     >
       {children}
