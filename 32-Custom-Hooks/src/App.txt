@@ -1,0 +1,6 @@
+see here in this code you just write a logic for fetch api once in Fetch.jsx and then using your made custom Hook you can fetch any api without writing again.so it is the Actual work of custom hook.🫠  
+
+For example, suppose you have some logic that fetches data from an API and manages loading and error states. You can encapsulate this logic into a custom hook like so:
+
+
+This way, you can reuse the logic for fetching data in multiple components without duplicating code.
