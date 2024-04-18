@@ -23,7 +23,7 @@ function Sidebar({ selectTab, setSelectTab }) {
           }}
         >
           <a
-            href="#"
+            href="/"
             className={`nav-link link-body-emphasis ${
               selectTab === "Home" && "active"
             }`}
@@ -41,7 +41,7 @@ function Sidebar({ selectTab, setSelectTab }) {
           }}
         >
           <a
-            href="#"
+            href="/create-post"
             className={`nav-link link-body-emphasis ${
               selectTab === "Create Post" && "active"
             }`}
