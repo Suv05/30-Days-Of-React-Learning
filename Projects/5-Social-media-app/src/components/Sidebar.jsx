@@ -6,7 +6,7 @@ function Sidebar({ selectTab, setSelectTab }) {
       style={{ width: "280px",minHeight: "600px"}}
     >
       <a
-        href="/"
+        href="#"
         className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
       >
         <svg className="bi pe-none me-2" width="40" height="32">
@@ -41,7 +41,7 @@ function Sidebar({ selectTab, setSelectTab }) {
           }}
         >
           <a
-            href="/create-post"
+            href="#"
             className={`nav-link link-body-emphasis ${
               selectTab === "Create Post" && "active"
             }`}
