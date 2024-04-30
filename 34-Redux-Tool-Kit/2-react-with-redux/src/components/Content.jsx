@@ -24,13 +24,13 @@ function Content({}) {
           quaerat consequuntur eaque quisquam quasi facilis necessitatibus, ad
           molestiae eum, enim ullam repellendus.
         </p>
-        <p>
-          <i>
-            <h3>
-              <b>Counter value 😴: {counter}</b>
-            </h3>
-          </i>
-        </p>
+        {/* counter value */}
+        <i>
+          <h3>
+            <b>Counter value 😴: {counter}</b>
+          </h3>
+        </i>
+
         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <Controls />
         </div>
