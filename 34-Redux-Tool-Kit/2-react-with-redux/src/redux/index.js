@@ -2,17 +2,20 @@ import { createStore } from "redux";
 
 let INTIAL_VALUE = {
   counter: 0,
+  jokerToggle: false,
 };
 
 const counterReducer = (state = INTIAL_VALUE, action) => {
   if (action.type === "INCREMENT") {
-    return { counter: state.counter + 1 };
+    return { ...state, counter: state.counter + 1 };
   } else if (action.type === "DECREMENT") {
-    return { counter: state.counter - 1 };
+    return { ...state, counter: state.counter - 1 };
   } else if (action.type === "ADD") {
-    return { counter: state.counter + Number(action.payload.num) };
+    return { ...state, counter: state.counter + Number(action.payload.num) };
   } else if (action.type === "SUB") {
-    return { counter: state.counter - action.payload.num };
+    return { ...state, counter: state.counter - action.payload.num };
+  } else if (action.type === "SEE") {
+    return { ...state, jokerToggle: !state.jokerToggle };
   }
   return state;
 };
