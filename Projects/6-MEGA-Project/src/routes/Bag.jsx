@@ -1,10 +1,11 @@
+import Bagsummary from "../components/BagSummary";
 function Bag({}) {
   return (
     <>
       <main>
         <div class="bag-page">
           <div class="bag-items-container"></div>
-          <div class="bag-summary"></div>
+          <Bagsummary />
         </div>
       </main>
     </>
