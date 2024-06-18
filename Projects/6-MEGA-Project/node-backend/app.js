@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Import cors
 
 const { getStoredItems, storeItems } = require('./data/items');
 
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cors()); // Use cors middleware
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -38,4 +40,6 @@ app.post('/items', async (req, res) => {
   res.status(201).json({ message: 'Stored new item.', item: newItem });
 });
 
-app.listen(8080);
+app.listen(8080, () => {
+  console.log('Server is running on http://localhost:8080');
+});
