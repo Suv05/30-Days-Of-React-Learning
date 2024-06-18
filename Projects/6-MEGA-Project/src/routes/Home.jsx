@@ -1,26 +1,38 @@
+import { useEffect, useState } from "react";
 import Homeitem from "../components/Homeitem";
+import { useSelector } from "react-redux";
+import Spinner from "../components/Spinner";
 
 function Home({}) {
-  const item = {
-    id: "001",
-    image: "images/1.jpg",
-    company: "Carlton London",
-    item_name: "Rhodium-Plated CZ Floral Studs",
-    original_price: 1045,
-    current_price: 606,
-    discount_percentage: 42,
-    return_period: 14,
-    delivery_date: "10 Oct 2023",
-    rating: {
-      stars: 4.5,
-      count: 1400,
-    },
-  };
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/items");
+        const data = await response.json();
+        setItems(data.items);
+        setLoading(false);
+      } catch (error) {
+        console.log("Error detected" + error);
+        setLoading(false);
+      }
+    };
+    fetchItems();
+  }, []);
+
+  if (loading) {
+    return <Spinner />;
+  }
+
   return (
     <>
       <main>
         <div className="items-container">
-          <Homeitem items={item}></Homeitem>
+          {items.map((item) => (
+            <Homeitem key={item.id} items={item} />
+          ))}
         </div>
       </main>
     </>
