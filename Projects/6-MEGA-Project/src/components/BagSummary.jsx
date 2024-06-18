@@ -9,7 +9,7 @@ function Bagsummary({}) {
   };
   return (
     <>
-      <div class="bag-summary">
+      <div className="bag-summary">
         <div className="bag-details-container">
           <div className="price-header">
             PRICE DETAILS {summary.totalItem} Items
