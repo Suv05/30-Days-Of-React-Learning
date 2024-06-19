@@ -1,6 +1,8 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Header({}) {
+  const bagItem = useSelector((store) => store.bag);
   return (
     <>
       <header>
@@ -50,7 +52,7 @@ function Header({}) {
               shopping_bag
             </span>
             <span className="action_name">Bag</span>
-            <span className="bag-item-count">0</span>
+            <span className="bag-item-count">{bagItem.length}</span>
           </Link>
         </div>
       </header>
