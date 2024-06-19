@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Homeitem from "../components/Homeitem";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addInitialItems } from "../store/itemSlice"; // Adjust the path as needed
 import Spinner from "../components/Spinner";
 
 function Home({}) {
-  const [items, setItems] = useState([]);
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.items);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -12,7 +14,7 @@ function Home({}) {
       try {
         const response = await fetch("http://localhost:8080/items");
         const data = await response.json();
-        setItems(data.items);
+        dispatch(addInitialItems(data.items));
         setLoading(false);
       } catch (error) {
         console.log("Error detected" + error);
@@ -20,7 +22,7 @@ function Home({}) {
       }
     };
     fetchItems();
-  }, []);
+  }, [dispatch]);
 
   if (loading) {
     return <Spinner />;

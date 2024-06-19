@@ -16,12 +16,12 @@ function Header({}) {
           </Link>
         </div>
         <nav className="nav_bar">
-          <a href="#">Men</a>
-          <a href="#">Women</a>
-          <a href="#">Kids</a>
-          <a href="#">Home & Living</a>
-          <a href="#">Beauty</a>
-          <a href="#">
+          <a href="https://www.myntra.com/shop/men">Men</a>
+          <a href="https://www.myntra.com/shop/women">Women</a>
+          <a href="https://www.myntra.com/shop/kids">Kids</a>
+          <a href="https://www.myntra.com/shop/home-living">Home & Living</a>
+          <a href="https://www.myntra.com/shop/beauty">Beauty</a>
+          <a  href="https://www.myntra.com/studio/home">
             Studio <sup>New</sup>
           </a>
         </nav>

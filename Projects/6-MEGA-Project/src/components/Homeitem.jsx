@@ -1,9 +1,14 @@
 import React from "react";
 import { IoBagHandleSharp } from "react-icons/io5";
-import { useDispatch } from "react-redux";
+import { IoBagRemove } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
 import { addToBag, removeFromBag } from "../store/BagSlice";
 
 function Homeitem({ items }) {
+  //For selecting elements from bag
+  const bagItems = useSelector((store) => store.bag);
+
+  //To dispatch action to store
   const dispatch = useDispatch();
   const handelAddToBag = () => {
     dispatch(addToBag(items.id));
@@ -24,12 +29,22 @@ function Homeitem({ items }) {
         <span className="original-price">Rs {items.original_price}</span>
         <span className="discount">({items.discount_percentage}% OFF)</span>
       </div>
-      <button className="btn-add-bag btn btn-outline-info" onClick={handelAddToBag}>
-        <IoBagHandleSharp size={20} className="mb-1" /> Add To Cart
-      </button>
-      <button className="btn-add-bag btn btn-outline-danger" onClick={handelAddToBag}>
-        <IoBagHandleSharp size={20} className="mb-1" /> Remove From Cart
-      </button>
+      {/* Serching for elemnts in shopping cart */}
+      {bagItems.indexOf(items.id) >= 0 ? (
+        <button
+          className="btn-add-bag btn btn-outline-danger"
+          onClick={handelRemoveBag}
+        >
+          <IoBagRemove size={20} className="mb-1" /> Remove From Cart
+        </button>
+      ) : (
+        <button
+          className="btn-add-bag btn btn-outline-info"
+          onClick={handelAddToBag}
+        >
+          <IoBagHandleSharp size={20} className="mb-1" /> Add To Cart
+        </button>
+      )}
     </div>
   );
 }

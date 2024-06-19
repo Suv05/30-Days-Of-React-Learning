@@ -1,6 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { removeFromBag } from "../store/BagSlice";
 
 function Bagitem({ item }) {
+  const dispatch = useDispatch();
+
+  const handleRemoveBag = () => {
+    dispatch(removeFromBag(item.id));
+  };
   return (
     <>
       <div className="bag-items-container">
@@ -19,16 +26,21 @@ function Bagitem({ item }) {
               </span>
             </div>
             <div className="return-period">
-              <span className="return-period-days">{item.return_period} days</span>{" "}
+              <span className="return-period-days">
+                {item.return_period} days
+              </span>{" "}
               return available
             </div>
             <div className="delivery-details">
               Delivery by
-              <span className="delivery-details-days">{" "}{item.delivery_date}</span>
+              <span className="delivery-details-days">
+                {" "}
+                {item.delivery_date}
+              </span>
             </div>
           </div>
 
-          <div className="remove-from-cart" /*onclick="removeFromBag(${item.id})"*/>
+          <div className="remove-from-cart" onClick={handleRemoveBag}>
             X
           </div>
         </div>
